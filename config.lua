@@ -78,7 +78,12 @@ require('kanagawa').setup({
 local builtin = require('telescope.builtin')
 lvim.builtin.telescope.defaults = {
     path_display = { 'absolute' },
-    wrap_results = true
+    wrap_results = true,
+    layout_strategy = 'horizontal',
+    layout_config = {
+        height = 0.95,
+        width = 0.95,
+    },
 }
 lvim.keys.normal_mode['<leader>o'] = builtin.lsp_references
 lvim.keys.normal_mode['<leader>j'] = builtin.find_files
