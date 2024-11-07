@@ -118,12 +118,8 @@ vim.api.nvim_set_keymap('i', '<C-e>', "copilot#Accept('')", { expr = true, silen
 -- Linters + Formatters
 local linters = require 'lvim.lsp.null-ls.linters'
 local formatters = require 'lvim.lsp.null-ls.formatters'
-lvim.builtin.which_key.mappings['l']['f'] = {
-    function()
-        require('lvim.lsp.utils').format { timeout_ms = 5000 }
-    end,
-    'Format',
-}
+
+lvim.builtin.which_key.mappings['l']['f'] = { '<cmd>silent !eslint_d % --fix<CR>', 'Fix with eslint_d' }
 
 formatters.setup({
     { command = 'prettierd', filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'json' } },
